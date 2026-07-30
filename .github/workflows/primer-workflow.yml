@@ -1,0 +1,28 @@
+name: Mi primer workflow
+
+on:
+  push:
+
+jobs:
+  informacion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Saludo
+        run: echo "Hola, estoy ejecutando mi primer workflow"
+
+      - name: Mostrar sistema operativo
+        run: uname -a
+        
+      - name: Mostrar fecha
+        run: date
+
+      - name: Mostrar carpeta
+        run: pwd 
+
+      - name: Mostrar archivos
+        run: ls -la
+
+ 
