@@ -1,0 +1,24 @@
+name: Mi segundo workflow
+
+on:
+  push:
+
+jobs:
+  informacion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Configurar Node
+        uses: actions/setup-node@v7
+        with: 
+          node-version: 24
+
+      - name: Mostrar versión de Node
+        run: node --version
+      
+      - name: Mostar version de npm
+        run: npm --version
+
+
