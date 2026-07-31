@@ -7,9 +7,13 @@ jobs:
   informacion:
     runs-on: ubuntu-latest
 
+    env:
+      APP_NAME: Mi aplicacion
+
     steps:
       - name: Mostrar información
         run: | 
           echo "Rama: $GITHUB_REF"
           echo "Repostiorio: $GITHUB_REPOSITORY"
           echo "Usuario: $GITHUB_ACTOR"
+          echo "Proyecto: $APP_NAME"
