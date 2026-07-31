@@ -1,0 +1,15 @@
+name: Contextos
+
+on: 
+  push:
+
+job: 
+  informacion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar información
+        run: | 
+          echo "Rama: $GITHUB_REF"
+          echo "Repostiorio: $GITHUB_REPOSITORY"
+          echo "Usuario: $GITHUB_ACTOR"
