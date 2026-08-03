@@ -1,0 +1,35 @@
+name: Matrix and Artifacts
+
+on: 
+  push:
+    branches:
+      - "features/*"
+  workflow_dispatch:
+    
+jobs: 
+  matrix-artifacts:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18, 20]
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurando Node.js version = ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Generador de reportes
+        run: |
+          echo "Reporte generado por ${{ github.actor }}" > reporte-node-${{ matrix.node-version }}.txt
+          echo "Prueba Node.js exitosa con la version ${{ matrix.node-version }}" >> reporte-node-${{ matrix.node-version }}.txt
+
+      - name: Crear Artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-artifact${{ matrix.node-version }}
+          path: reporte-node-${{ matrix.node-version }}.txt
