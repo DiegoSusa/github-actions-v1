@@ -1,0 +1,31 @@
+name: Despliegue simulado
+
+on: 
+  workflow_dispatch:
+    
+jobs: 
+  simulate-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      ENTORNO: "Staging / Producción"
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+      
+      - name: Verificando entorno de ejecución
+        run: |
+          echo "Preparando todo para el despliegue..."
+          echo "Entorno actual: $ENTORNO"
+
+      - name: Simular conexion segura al servidor
+        env: 
+          CLAVE_SECRETA: ${{ secrets.API_KEY_PROD }}
+        run: |
+          echo "Autenticando conexión con el servidor..."
+          echo "Clave encontrada: $CLAVE_SECRETA"
+
+      - name: Mensaje de confirmación
+        if: ${{ success() }}
+        run: echo "Despliegue simulado exitoso!!!"
