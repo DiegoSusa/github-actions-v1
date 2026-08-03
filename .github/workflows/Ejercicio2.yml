@@ -5,7 +5,7 @@ on:
     branches:
       - "feature/*"
   workflow_dispatch:
-    
+
 jobs: 
   matrix-artifacts:
     runs-on: ubuntu-latest
@@ -18,7 +18,7 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      - name: Configurando Node.js version = ${{ matrix.node-version }}
+      - name: Configurando Node.js version
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
@@ -31,5 +31,5 @@ jobs:
       - name: Crear Artefacto
         uses: actions/upload-artifact@v4
         with:
-          name: reporte-artifact${{ matrix.node-version }}
+          name: reporte-artifact-${{ matrix.node-version }}
           path: reporte-node-${{ matrix.node-version }}.txt
