@@ -3,7 +3,7 @@ name: Matrix and Artifacts
 on: 
   push:
     branches:
-      - "features/*"
+      - "feature/*"
   workflow_dispatch:
     
 jobs: 
