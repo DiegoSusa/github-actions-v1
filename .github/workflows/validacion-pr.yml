@@ -1,19 +1,18 @@
-name: validacion de pr
+name: Validacion de pr
 
 on: 
   pull_request:
     types: [opened, synchronize]
 
-jobs: 
+jobs:
   validacion:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Descargar repositorio
-        uses: actions/checkout@v4
+      - name: Descargar el repositorio
+        run: actions/checkout@v4
 
-      - name: Saludar actor
-        run: echo "Hola actor ${{ github.actor }}, todo funciona de maravilla!"
+      - name: Saludar al actor
+        run: echo "Hola actor ${{ github.action }}, todo funciona de maravilla"
 
       - name: Verificacion
         run: echo "Verificando que todo esté en orden..."
