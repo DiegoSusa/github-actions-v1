@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Mostrar información
-        run: | 
+        run: |
           echo "Rama: $GITHUB_REF"
           echo "Repostiorio: $GITHUB_REPOSITORY"
           echo "Usuario: $GITHUB_ACTOR"
